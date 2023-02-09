@@ -1,0 +1,53 @@
+{
+  "editor.fontSize": 12,
+  "files.autoSaveDelay": 5000,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 50,
+  "terminal.integrated.fontSize": 20,
+  "terminal.integrated.shellIntegration.enabled": true,
+  "emmet.includeLanguages": {
+    "edge": "html"
+  },
+
+  "editor.lineHeight": 1.5,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "[markdown]": {
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "editor.wordWrap": "bounded",
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "other": "on",
+      "strings": "on"
+    },
+    "editor.suggest.preview": true
+  },
+  "git.enableSmartCommit": true,
+  "explorer.confirmDragAndDrop": false,
+  "git.autofetch": true,
+  "explorer.confirmDelete": false,
+  "git.confirmSync": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "codeswing.layout": "preview",
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[json.format.enable]": {
+    "editor.wordWrapColumn": 50
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "workbench.colorTheme": "GitHub Dark Default",
+  "notebook.compactView": false,
+  "redhat.telemetry.enabled": false
+}
