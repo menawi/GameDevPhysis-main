@@ -2,8 +2,6 @@
 
 // There are vars "width" and "height" that NOT referenced in the shape class BUT are referenced in its child rectangle class
 
-
-
 class Shape {
   constructor(x, y, color) {
     this.x = x;
