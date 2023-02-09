@@ -40,7 +40,7 @@ class newShape {
 
 const circlesArray = []
 
-class Circle extends Shape {
+class Circle extends newShape {
   constructor(x, y, color, radius) {
     super(x, y, color)
     this.radius = radius
@@ -86,3 +86,4 @@ function animateCircle() {
 }
 
 animateCircle()
+
