@@ -2,88 +2,84 @@
 // https://github.com/bholzer/Bouncing-Ball-Animation-Tutorial
 
 
-
-
-
-class newShape {
-  constructor(x, y, color) {
-    this.x = x
-    this.y = y
-    this.color = color
-    // can add array here to collect all shapes
+class Circle extends Shape {
+  constructor(x, y, radius, color) {
+    super(x, y, color);
+    this.radius = radius;
+    this.dx = 1;
+    this.dy = 1;
   }
 
   draw(context) {
-    // since drawing methods are specifc to the type of shape, you leave this empty and write it in the child classes
-  }
-
-  move(dx, dy) {
-    this.x += dx
-    this.y += dy
-  }
-
-  collide(canvasWidth, canvasHeight) {
-    // hor walls
-    if (this.x < 0 || this.x + this.width > canvasWidth) {
-      this.x = -this.dix
-    }
-    // ver walls
-    if (this.y < 0 || this.y + this.width > canvasHeight) {
-      this.y = -this.dy
-    }
-  }
-
-}
-
-
-// note : for the circle child class, you will need to factor in the radius instead of the width
-
-const circlesArray = []
-
-class Circle extends newShape {
-  constructor(x, y, color, radius) {
-    super(x, y, color)
-    this.radius = radius
-    circlesArray.push(this)
-
-  }
-
-  draw(context) {
+    context.fillStyle = this.color;
     context.beginPath();
-    context.arc(this.x, this.y, radius, 0, 2 * Math.PI);
-    context.fillStyle = 'this.color';
+    context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     context.fill();
-    // context.closePath();
-
   }
 
   move(dx, dy) {
-    this.x += dx
-    this.y += dy
+    super.move(dx, dy);
+    this.collideCircle(canvas.width, canvas.height);
   }
 
-  collide(canvasWidth, canvasHeight) {
-    if (this.x < 0 || this.x + this.radius > canvasWidth) {
+  // 📌Assignment : explain why used collideCircle instead of collide?
+  //   Explain why we need to factor in the radius the way we did?
+  collideCircle(canvasWidth, canvasHeight) {
+    if (this.x - this.radius < 0 || this.x + this.radius > canvasWidth) {
       this.dx = -this.dx;
     }
-    if (this.y < 0 || this.y + this.radius > canvasHeight) {
+    if (this.y - this.radius < 0 || this.y + this.radius > canvasHeight) {
       this.dy = -this.dy;
     }
   }
-
-}
-
-
-function animateCircle() {
-  // clear context
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  for (let i = 0; i < circlesArray.length; i++) {
-    const circle = circlesArray[i];
-    circle.move(circle.dx, circle.dy)
-    circle.draw(context)
+  //  collide with other CIRCLES
+  collideCircle(circle) {
+    let distance = Math.sqrt(Math.pow(this.x - circle.x, 2) + Math.pow(this.y - circle.y, 2));
+    return distance < this.radius + circle.radius;
   }
-  requestAnimationFrame(animateCircle)
+  //  collide with other rectangles
+  collideRectangle(rectangle) {
+    let closestX = clamp(this.x, rectangle.x - rectangle.width / 2, rectangle.x + rectangle.width / 2);
+    let closestY = clamp(this.y, rectangle.y - rectangle.height / 2, rectangle.y + rectangle.height / 2);
+    let distance = Math.sqrt(Math.pow(closestX - this.x, 2) + Math.pow(closestY - this.y, 2));
+    return distance < this.radius;
+  }
+
 }
 
-animateCircle()
+// blue circle
+const blueCircle = new Circle(10, 10, 10, "blue");
+
+// green circle
+const greenCircle = new Circle(40, 40, 15, "green");
+
+// function animate() {
+//   // must clear canvas before every reDraw (experiment changing the value !)
+//   context.clearRect(0, 0, canvas.width, canvas.height);
+
+//   // red rectangle
+//   redRectangle.move(redRectangle.dx, redRectangle.dy);
+//   redRectangle.draw(context);
+
+//   // yellow rectangle
+//   yellowRectangle.move(yellowRectangle.dx, yellowRectangle.dy);
+//   yellowRectangle.draw(context);
+
+//   //   circles
+
+//   blueCircle.move(blueCircle.dx, blueCircle.dy);
+//   blueCircle.draw(context);
+
+//   greenCircle.move(greenCircle.dx, greenCircle.dy);
+//   greenCircle.draw(context);
+
+//   // requestanimationframe
+//   requestAnimationFrame(animate);
+// }
+
+// // console.log('hello');
+
+// window.requestAnimationFrame(animate);
+
+
 

@@ -40,3 +40,27 @@ This value represents a full circle, as Math.PI is half of the circumference of 
 = so two points ➡️ starting point of the line and the end point.
 
 What specifiecs the movement in circular motion though? ✅ The context.arc method is specifc to circles
+
+> Canvas Coordinates
+
+0,0 on Canvas is top left
+
+> Canvas creation
+
+Key point
+Class is only for Javascript generated objects. If we init a class Canvas, we must create the canvas HTML element from JS. THe question is : is it good practice though?
+
+class Canvas {
+constructor(id, width, height) {
+this.canvas = document.getElementById(id)
+this.context = this.canvas.getContext('2d')
+this.width = width
+this.height = height
+}
+}
+
+const myCanvas = new Canvas("canvas01", 500, 700);
+
+> Collision :: the midpoint
+
+Collision is :: check distance between midpoint of object and midpoint of other object (width or height)

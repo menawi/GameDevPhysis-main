@@ -2,15 +2,18 @@
 
 // There are vars "width" and "height" that NOT referenced in the shape class BUT are referenced in its child rectangle class
 
+let shapesArray = []
+
 class Shape {
   constructor(x, y, color) {
     this.x = x;
     this.y = y;
     this.color = color;
+    shapesArray.push(this)
   }
 
   draw(context) {
-    // Override this method in child classes
+    // fill the function child classes
   }
 
   move(dx, dy) {
@@ -26,67 +29,31 @@ class Shape {
       this.dy = -this.dy;
     }
   }
+
+  shapesCollide(shape) {
+
+    if (this instanceof Circle && shape instanceof Circle) {
+      return this.collideCircle(shape);
+    } else if (this instanceof Rectangle && shape instanceof Rectangle) {
+      return this.collideRectangle(shape);
+    } else if (this instanceof Circle && shape instanceof Rectangle) {
+      return this.collideCircleRectangle(shape);
+    } else if (this instanceof Rectangle && shape instanceof Circle) {
+      return shape.collideCircleRectangle(this);
+
+    }
+
+  }
+
+
+
 }
+
+
 
 // end shape class
 
-
 // Rectangle class ; child of Shape class: add the properties of width and height , inherit "super" properties such as position, color and functions
-
-class Rectangle extends Shape {
-  constructor(x, y, width, height, color) {
-    super(x, y, color);
-    this.width = width;
-    this.height = height;
-    this.dx = 1;
-    this.dy = 1;
-
-  }
-
-  draw(context) {
-    context.fillStyle = this.color;
-    context.fillRect(this.x, this.y, this.width, this.height);
-  }
-
-  move(dx, dy) {
-    super.move(dx, dy);
-    this.collide(canvas.width, canvas.height);
-  }
-}
-
-// red rectangle 
-const redRectangle = new Rectangle(10, 10, 50, 20, "red");
-
-// yellow rectangle
-const yellowRectangle = new Rectangle(100, 100, 25, 30, "yellow");
-
-
-
-function animate() {
-  // must clear canvas before every reDraw (experiment changing the value !)
-  context.clearRect(0, 0, canvas.width, canvas.height);
-
-  // red rectangle
-  redRectangle.move(redRectangle.dx, redRectangle.dy);
-  redRectangle.draw(context);
-
-  // yellow rectangle
-  yellowRectangle.move(yellowRectangle.dx, yellowRectangle.dy)
-  yellowRectangle.draw(context)
-
-  // requestanimationframe
-  requestAnimationFrame(animate)
-}
-
-// console.log('hello');
-
-
-animate()
-
-
-
-
-// 💡Instead of having to write code to run the draw and move methods on each individaul instance of the rectangle class, how can we run the methods on all instances?
 
 
 

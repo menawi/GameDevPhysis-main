@@ -47,7 +47,7 @@
     "editor.wordWrapColumn": 50
   },
   "liveServer.settings.donotShowInfoMsg": true,
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "Firefox Devtools",
   "notebook.compactView": false,
   "redhat.telemetry.enabled": false
 }
