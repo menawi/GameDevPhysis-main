@@ -1,6 +1,4 @@
-//  class : define the properties of the shape class, add a render function in it, a move function, and a collision function.
-
-// There are vars "width" and "height" that NOT referenced in the shape class BUT are referenced in its child rectangle class
+// SHAPE CLASS
 
 let shapesArray = []
 
@@ -30,39 +28,10 @@ class Shape {
     }
   }
 
-  shapesCollide(shape) {
-
-    if (this instanceof Circle && shape instanceof Circle) {
-      return this.collideCircle(shape);
-    } else if (this instanceof Rectangle && shape instanceof Rectangle) {
-      return this.collideRectangle(shape);
-    } else if (this instanceof Circle && shape instanceof Rectangle) {
-      return this.collideCircleRectangle(shape);
-    } else if (this instanceof Rectangle && shape instanceof Circle) {
-      return shape.collideCircleRectangle(this);
-
-    }
-
-  }
-
-
 
 }
 
 
 
-// end shape class
 
-// Rectangle class ; child of Shape class: add the properties of width and height , inherit "super" properties such as position, color and functions
-
-
-
-
-// 🚨 What would running this below do?
-
-// setInterval(() => {
-//   animate()
-// }, 500);
-
-// It would run the function "animate()" once every 60ms which means the animation will iterate a new run as if you created multilpe rectangle animations
 

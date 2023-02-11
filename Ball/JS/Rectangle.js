@@ -1,3 +1,5 @@
+// RECTANGLE CLASS
+
 class Rectangle extends Shape {
   constructor(x, y, width, height, color) {
     super(x, y, color);
@@ -17,7 +19,25 @@ class Rectangle extends Shape {
     super.move(dx, dy);
     this.collide(canvas.width, canvas.height);
   }
+
+
+
+
+  //  collide with  other RECTANGLES
+  collideRectangle(rectangle) {
+    return (
+      this.x - this.width / 2 < rectangle.x + rectangle.width / 2 &&
+      this.x + this.width / 2 > rectangle.x - rectangle.width / 2 &&
+      this.y - this.height / 2 < rectangle.y + rectangle.height / 2 &&
+      this.y + this.height / 2 > rectangle.y - rectangle.height / 2
+    )
+
+
+  }
+
+
 }
+
 
 // red rectangle 
 const redRectangle = new Rectangle(10, 10, 50, 20, "red");

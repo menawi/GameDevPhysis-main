@@ -4,10 +4,6 @@
 
 Chapter 3 Trigonometry for Animation
 
-# > Explain my Shape and Circle code
+# > Explain most recent code
 
-✅
-
-# > Basic Javascript freeCodeCamp course
-
-- section 1 and 2 ✅
+- collision
