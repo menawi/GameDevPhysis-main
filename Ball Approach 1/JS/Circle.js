@@ -1,11 +1,15 @@
 // CIRCLE CLASS
 
+let circlesArray = []
+
 class Circle extends Shape {
   constructor(x, y, radius, color) {
     super(x, y, color);
     this.radius = radius;
     this.dx = 1;
     this.dy = 1;
+    circlesArray.push(this)
+
 
   }
 
@@ -14,15 +18,18 @@ class Circle extends Shape {
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
     context.fill();
+    context.closePath();
+
   }
 
-  move(dx, dy) {
+  move(dx, dy, circle1, circle2) {
     super.move(dx, dy);
-    this.collideCircle(canvas.width, canvas.height);
+    this.collideCircleWalls(canvas.width, canvas.height);
+
   }
 
   // collide with WALLS
-  collideCircle(canvasWidth, canvasHeight) {
+  collideCircleWalls(canvasWidth, canvasHeight) {
     if (this.x - this.radius < 0 || this.x + this.radius > canvasWidth) {
       this.dx = -this.dx;
     }
@@ -30,19 +37,28 @@ class Circle extends Shape {
       this.dy = -this.dy;
     }
   }
-  //  collide with other CIRCLES
-  collideCircle(circle) {
-    let distance = Math.sqrt(Math.pow(this.x - circle.x, 2) + Math.pow(this.y - circle.y, 2));
-    return distance < this.radius + circle.radius;
-  }
 
+  checkCollision_otherCircles(circle1, circle2) {
+    let distance = Math.sqrt(Math.pow(circle1.x - circle2.x, 2) + Math.pow(circle1.y - circle2.y, 2));
+
+    if (distance < circle1.radius + circle2.radius) {
+      circle1.dx = - circle1.dx
+      circle1.dy = - circle1.dy
+      circle2.dx = - circle2.dx
+      circle2.dy = - circle2.dy
+    }
+
+  }
 
 }
 
 // blue circle
-const blueCircle = new Circle(10, 10, 10, "blue");
+const blueCircle = new Circle(100, 100, 10, "blue");
 
 // green circle
 const greenCircle = new Circle(40, 40, 15, "green");
+
+// red circle
+const redCircle = new Circle(100, 100, 5, "red");
 
 

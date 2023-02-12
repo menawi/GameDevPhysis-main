@@ -1,17 +1,18 @@
+// Animate Rectangles
 
 
 
 function animate() {
-  // must clear canvas before every reDraw (experiment changing the value !)
+  // // must clear canvas before every reDraw (experiment changing the value !)
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // red rectangle
-  redRectangle.move(redRectangle.dx, redRectangle.dy);
-  redRectangle.draw(context);
+  // // red rectangle
+  // redRectangle.move(redRectangle.dx, redRectangle.dy);
+  // redRectangle.draw(context);
 
-  // yellow rectangle
-  yellowRectangle.move(yellowRectangle.dx, yellowRectangle.dy);
-  yellowRectangle.draw(context);
+  // // yellow rectangle
+  // yellowRectangle.move(yellowRectangle.dx, yellowRectangle.dy);
+  // yellowRectangle.draw(context);
 
   //   circles
 
