@@ -15,3 +15,25 @@ Implementing game loops: You should understand how to create a game loop that up
 Loading and manipulating images: You should be able to load and manipulate images on the Canvas to create more complex game graphics.
 
 By mastering these skills, you'll be able to create simple to moderately complex games using JavaScript Canvas.
+
+
+```javascript
+context.strokeStyle = "#00FF00";
+context.lineWidth = 0.25
+
+
+for (let x = 0; x < canvas.width; x += 10) {
+  context.moveTo(x, 0);
+  context.lineTo(x, canvas.height);
+}
+
+for (let y = 0; y < canvas.height; y += 10) {
+  context.moveTo(0, y);
+  context.lineTo(canvas.width, y);
+}
+
+context.stroke();
+
+```
+
+
