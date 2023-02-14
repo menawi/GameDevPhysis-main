@@ -47,7 +47,7 @@
     "editor.wordWrapColumn": 50
   },
   "liveServer.settings.donotShowInfoMsg": true,
-  "workbench.colorTheme": "Firefox Devtools",
+  "workbench.colorTheme": "Default Dark+ Experimental",
   "notebook.compactView": false,
   "redhat.telemetry.enabled": false
 }
