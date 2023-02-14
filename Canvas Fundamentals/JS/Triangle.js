@@ -46,11 +46,3 @@ for (let y = 0; y < canvas.height; y += 10) {
 context.stroke();
 
 
-draw_grid(context);
-context.beginPath();
-context.arc(200, 200, 150, 0.2 * Math.PI, 1.8 * Math.PI);
-context.lineTo(200, 200);
-context.fillStyle = "yellow";
-context.fill();
-
-
