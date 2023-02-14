@@ -12,7 +12,9 @@
 
   "editor.lineHeight": 1.5,
   "workbench.iconTheme": "vscode-icons",
-  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.acceptSuggestionOnCommitCharacter": true,
+  "editor.acceptSuggestionOnEnter": "on",
+  "editor.tabCompletion": "on",
   "[markdown]": {
     "editor.unicodeHighlight.ambiguousCharacters": false,
     "editor.unicodeHighlight.invisibleCharacters": false,

@@ -47,7 +47,7 @@
   },
   "const": {
     "prefix": "C",
-    "body": ["const"]
+    "body": ["const ${1:name} = ${2:value}"]
   },
   "function": {
     "prefix": "fn",
@@ -187,7 +187,7 @@
   },
   "setTimeOut": {
     "prefix": "sto",
-    "body": "setTimeout(() => {\n\t${2}\n}, ${1:delayInms});",
+    "body": "setTimeout(() => {\n\t${2:func}\n},${1:delayInms});",
     "description": "Executes the given function after the specified delay in ES6 syntax"
   },
   "promise": {
